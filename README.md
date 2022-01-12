@@ -6,47 +6,49 @@ https://assignment.omept.com
 
 `check out the hosted solution: https://assignment.omept.com`
 
-Find Out If You Qualify For Our Developer Position
+`Find Out If You Qualify For Our Developer Position
 You’ve been invited to test your abilities for the back-end developer position.
 Please make sure you are following ALL the guidelines before submitting your solution. Only a 100% working and efficient solution will make us consider this test passed.
-Expect to spend 4-6 hours working on the assignment but you should submit within a week.
+Expect to spend 4-6 hours working on the assignment but you should submit within a week.`
 
-_Scenario_
+# Scenario
 
 Achievements
 
 Our customers access their purchased courses via our Course Portal. As part of this experience users are able to unlock achievements:
 
 Lessons Watched Achievements
- First Lesson Watched
- 5 Lessons Watched
- 10 Lessons Watched
- 25 Lessons Watched
- 50 Lessons Watched
+- First Lesson Watched
+- 5 Lessons Watched
+- 10 Lessons Watched
+- 25 Lessons Watched
+- 50 Lessons Watched
 
 Comments Written Achievements
- First Comment Written
- 3 Comments Written
- 5 Comments Written
- 10 Comment Written
- 20 Comment Written
+- First Comment Written
+- 3 Comments Written
+- 5 Comments Written
+- 10 Comment Written
+- 20 Comment Written
 
 Badges
 Users also have a badge, this is determined by the number of achievements they have unlocked.
- Beginner: 0 Achievements
- Intermediate: 4 Achievements  Advanced: 8 Achievements
- Master: 10 Achievements
+- Beginner: 0 Achievements
+- Intermediate: 4 Achievements
+- Advanced: 8 Achievements
+- Master: 10 Achievements
 
-## _Your Assignment_
+--------
+# _Your Assignment_
 
 Unlocking Achievements
 You need to write the code that listens for user events and unlocks the relevant achievement.
 
 For example;
- When a user writes a comment for the first time they unlock the “First Comment Written” achievement.
- When a user has already unlocked the “First Lesson Watched” achievement by watching a single video and then watches another four videos they unlock the “5 Lessons Watched” achievement.
+- When a user writes a comment for the first time they unlock the “First Comment Written” achievement.
+- When a user has already unlocked the “First Lesson Watched” achievement by watching a single video and then watches another four videos they unlock the “5 Lessons Watched” achievement.
 
-## AchievementUnlocked Event
+### **AchievementUnlocked Event**
 
 When an achievement is unlocked an AchievementUnlocked event must be fired with a
 payload of;
@@ -55,25 +57,25 @@ user (User Model) BadgeUnlocked Event
 When a user unlocks enough achievement to earn a new badge a BadgeUnlocked event must be fired with a payload of;
 badge_name (string) user (User Model)
 
-## Achievements Endpoint
+### **Achievements Endpoint**
 
 There is an endpoint `users/{user}/achievements` that can be found in the ‘web’ routes file, this must return the following;
 
-unlocked_achievements (string[ ])
+**unlocked_achievements** (string[ ])
 An array of the user’s unlocked achievements by name
 
-next_available_achievements (string[ ])
+**next_available_achievements** (string[ ])
 An array of the next achievements the user can unlock by name.
 Note: Only the next available achievement should be returned for each group of achievements.
 Example: If the user has unlocked the “5 Lessons Watched” and “First Comment Written” achievements only the “10 Lessons Watched” and “3 Comments Written“ achievements should be returned.
 
-current_badge (string)
+**current_badge** (string)
 The name of the user’s current badge.
 
-next_badge (string)
+**next_badge** (string)
 The name of the next badge the user can earn.
 
-remaining_to_unlock_next_badge (int)
+**remaining_to_unlock_next_badge** (int)
 The number of additional achievements the user must unlock to earn the next badge.
 Example: If a user has unlocked 5 achievements they must unlock an additional 3 achievements to earn the “Advanced” badge.
 Laravel HTTP tests documentation can be found at the following url: https://laravel.com/docs/8.x/http-tests
